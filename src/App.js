@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import Register from "./Register";
 import "./App.css";
 
 function Home() {
@@ -27,14 +28,6 @@ function Contact() {
   );
 }
 
-function Register() {
-  return (
-    <div className="container">
-      <h1>Register Page</h1>
-    </div>
-  );
-}
-
 function App() {
   return (
     <BrowserRouter>
@@ -43,9 +36,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/about" element={<About />} />
+
         <Route path="/contact" element={<Contact />} />
-        <Route path="/Register" element={<Register />} />
+
+        <Route path="/register" element={<Register />} />
       </Routes>
 
       <Footer />
