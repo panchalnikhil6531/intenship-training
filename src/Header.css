@@ -1,0 +1,42 @@
+/* Header.css */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  background: black;
+  color: white;
+  padding: 20px 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.nav-links{
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.btn{
+  padding: 10px 20px;
+  border: none;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
