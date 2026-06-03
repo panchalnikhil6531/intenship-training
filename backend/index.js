@@ -12,7 +12,7 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://localhost:27017/userDB")
+  .connect("mongodb+srv://<db_username>:<db_password>@cluster0.9bmlcgz.mongodb.net/")
   .then(() => {
     console.log("✅ MongoDB Connected Successfully");
   })
