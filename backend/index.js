@@ -12,14 +12,15 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://localhost:27017/userDB")
+  .connect(
+    "mongodb+srv://nikhilsp6531:nikhilsp6531@cluster0.9bmlcgz.mongodb.net/"
+  )
   .then(() => {
     console.log("✅ MongoDB Connected Successfully");
   })
   .catch((err) => {
     console.error("❌ MongoDB Connection Error:", err);
   });
-
 // Register API
 app.post("/register", async (req, res) => {
   try {
