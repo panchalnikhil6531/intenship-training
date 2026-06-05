@@ -1,10 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import Register from "./Register";
 import ApiCalling from "./ApiCalling";
 import Home from "./home";
 import Users from "./Users";
+import Cart from "./Cart";
+
 import "./App.css";
 
 function About() {
@@ -49,26 +53,15 @@ function Contact() {
 
       <div className="contact-box">
         <p><strong>Name:</strong> Nikhil Panchal</p>
-        <p><strong>Email:</strong> nikhil@gmail.com</p>
-        <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+        <p><strong>Email:</strong> nikhilsp7505@gmail.com</p>
+        <p><strong>Phone:</strong> +91 1234567890</p>
         <p><strong>Location:</strong> Ahmedabad, Gujarat</p>
       </div>
 
       <form className="contact-form">
-        <input
-          type="text"
-          placeholder="Enter Your Name"
-        />
-
-        <input
-          type="email"
-          placeholder="Enter Your Email"
-        />
-
-        <textarea
-          rows="5"
-          placeholder="Enter Your Message"
-        ></textarea>
+        <input type="text" placeholder="Enter Your Name" />
+        <input type="email" placeholder="Enter Your Email" />
+        <textarea rows="5" placeholder="Enter Your Message"></textarea>
 
         <button type="submit">
           Send Message
@@ -79,18 +72,48 @@ function Contact() {
 }
 
 function App() {
+
+  // Global Cart State
+  const [cart, setCart] = useState([]);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header cartCount={cart.length} />
 
       <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/api" element={<ApiCalling />} />
-  <Route path="/users" element={<Users />} />
-  <Route path="/about" element={<About />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/register" element={<Register />} />
-</Routes>
+
+        <Route
+          path="/"
+          element={
+            <Home
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
+
+        <Route path="/api" element={<ApiCalling />} />
+
+        <Route path="/users" element={<Users />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
+
+      </Routes>
+
       <Footer />
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
-import { useState } from "react";
 import "./App.css";
 
-function Home() {
+function Home({ cart, setCart }) {
+
   const products = [
     {
       id: 1,
@@ -49,7 +49,7 @@ function Home() {
       id: 7,
       name: "Keyboard",
       price: 1499,
-      image: "https://i.pinimg.com/originals/7d/39/39/7d3939a449d49568723455058462e0c3.jpg?nii=t",
+      image: "https://i.pinimg.com/originals/7d/39/39/7d3939a449d49568723455058462e0c3.jpg",
       badge: "New"
     },
     {
@@ -59,7 +59,7 @@ function Home() {
       image: "https://img.magnific.com/free-photo/red-computer-mouse_1260-13.jpg?semt=ais_hybrid&w=740&q=80",
       badge: "Hot"
     },
-     {
+    {
       id: 9,
       name: "Display",
       price: 9999,
@@ -67,8 +67,6 @@ function Home() {
       badge: "Hot"
     }
   ];
-
-  const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
     const exists = cart.find(
@@ -81,7 +79,7 @@ function Home() {
           item.id === product.id
             ? {
                 ...item,
-                quantity: item.quantity + 1,
+                quantity: item.quantity + 1
               }
             : item
         )
@@ -91,72 +89,28 @@ function Home() {
         ...cart,
         {
           ...product,
-          quantity: 1,
-        },
+          quantity: 1
+        }
       ]);
     }
   };
 
-  const removeFromCart = (id) => {
-    setCart(
-      cart.filter((item) => item.id !== id)
-    );
-  };
-
-  const total = cart.reduce(
-    (sum, item) =>
-      sum + item.price * item.quantity,
-    0
-  );
-
   return (
     <div className="container">
 
-      {/* Hero Section */}
       <div className="hero">
         <h1>Welcome to My Store</h1>
-        <p>
-          Discover the latest gadgets and accessories
-        </p>
+        <p>Discover the latest gadgets and accessories</p>
       </div>
 
-      {/* Cart */}
-      <div className="cart-box">
-        <h2>🛒 Cart ({cart.length})</h2>
-
-        {cart.map((item) => (
-          <div
-            key={item.id}
-            className="cart-item"
-          >
-            <span>
-              {item.name} x {item.quantity}
-            </span>
-
-            <button
-              onClick={() =>
-                removeFromCart(item.id)
-              }
-            >
-              Remove
-            </button>
-          </div>
-        ))}
-
-        <h3>Total ₹{total}</h3>
-      </div>
-
-      {/* Products */}
       <div className="heading">
         <h1>Featured Products</h1>
       </div>
 
       <div className="product-container">
         {products.map((product) => (
-          <div
-            className="card"
-            key={product.id}
-          >
+          <div className="card" key={product.id}>
+
             <span className="badge">
               {product.badge}
             </span>
@@ -176,16 +130,36 @@ function Home() {
 
               <button
                 className="btn"
-                onClick={() =>
-                  addToCart(product)
-                }
+                onClick={() => addToCart(product)}
               >
                 Add To Cart
               </button>
+
             </div>
+
           </div>
         ))}
       </div>
+
+      <div className="video-section">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="hero-video"
+  >
+    <source
+      src="https://www.pexels.com/download/video/7547007/"
+      type="video/mp4"
+    />
+  </video>
+
+  <div className="video-content">
+    <h1>Welcome To US LIFE</h1>
+    <p>Discover Amazing Technology Products</p>
+  </div>
+</div>
 
     </div>
   );

@@ -22,15 +22,15 @@ function Footer() {
         </ul>
 
         <div className="social-icons">
-          <a href="https://github.com" target="_blank" rel="noreferrer">
+          <a href="https://github.com/panchalnikhil6531" target="_blank" rel="noreferrer">
             GitHub
           </a>
 
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/nikhil-s-panchal-463a78319/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
 
-          <a href="mailto:example@gmail.com">
+          <a href="nikhilsp7405@gmail.com">
             Email
           </a>
         </div>

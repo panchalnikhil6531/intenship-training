@@ -18,26 +18,50 @@ function Users() {
   };
 
   return (
-    <div className="container">
-      <h1>All Users</h1>
+    <div className="users-container">
 
-      <table border="1" cellPadding="10">
+      <h1 className="users-title">
+        Registered Users
+      </h1>
+
+      <table className="users-table">
+
         <thead>
           <tr>
+            <th>Avatar</th>
             <th>Name</th>
             <th>Email</th>
           </tr>
         </thead>
 
         <tbody>
-          {users.map((user) => (
-            <tr key={user._id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
+          {users.length > 0 ? (
+            users.map((user) => (
+              <tr key={user._id}>
+
+                <td>
+                  <div className="user-avatar">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                </td>
+
+                <td>{user.name}</td>
+
+                <td>{user.email}</td>
+
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3" className="no-users">
+                No Users Found
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
+
       </table>
+
     </div>
   );
 }

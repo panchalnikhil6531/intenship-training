@@ -8,7 +8,7 @@ function Contact() {
 
         <p><strong>Email:</strong> nikhil@example.com</p>
 
-        <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+        <p><strong>Phone:</strong> +91 12345233232</p>
 
         <p><strong>Location:</strong> Ahmedabad, Gujarat</p>
       </div>
