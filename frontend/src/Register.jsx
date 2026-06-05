@@ -22,7 +22,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/register",
+        "https://intenship-training-2.onrender.com/register",
         formData
       );
 
